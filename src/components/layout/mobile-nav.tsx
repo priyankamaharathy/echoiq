@@ -15,6 +15,10 @@ const items = [
     href: "/search",
     icon: Search,
   },
+  {
+    label: "New meeting",
+    href: "/meetings/new",
+  },
 ];
 
 export function MobileNav() {
@@ -24,7 +28,6 @@ export function MobileNav() {
     <nav className="fixed inset-x-0 bottom-0 z-50 border-t bg-background/95 px-2 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
       <div className="mx-auto flex h-16 max-w-md items-center justify-around">
         {items.map((item) => {
-          const Icon = item.icon;
           const active = pathname === item.href;
 
           return (
@@ -33,12 +36,11 @@ export function MobileNav() {
               href={item.href}
               className={[
                 "flex min-w-16 flex-col items-center gap-1 rounded-lg px-3 py-2 text-[10px] transition-colors",
-                active
-                  ? "text-foreground"
-                  : "text-muted-foreground",
+                active ? "text-foreground" : "text-muted-foreground",
               ].join(" ")}
             >
-              <Icon className="size-4" />
+              {item.icon && <item.icon className="size-4" />}
+
               <span>{item.label}</span>
             </Link>
           );

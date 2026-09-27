@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { CalendarDays, Menu, Search, Sparkles } from "lucide-react";
+import { Menu, Search, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
