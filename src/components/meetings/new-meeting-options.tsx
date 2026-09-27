@@ -4,13 +4,14 @@ import { useRef } from "react";
 
 import { NewMeetingCard } from "./new-meeting-card";
 
-export function NewMeetingOptions() {
-  const fileInputRef = useRef<HTMLInputElement>(null);
+type NewMeetingOptionsProps = {
+  onStartRecording: () => void;
+};
 
-  const handleStartRecording = () => {
-    // Recording flow will be implemented next.
-    console.log("Start recording");
-  };
+export function NewMeetingOptions({
+  onStartRecording,
+}: NewMeetingOptionsProps) {
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleUploadRecording = () => {
     fileInputRef.current?.click();
@@ -33,7 +34,7 @@ export function NewMeetingOptions() {
           type="record"
           title="Start recording"
           description="Record a meeting live and generate a transcript as the conversation happens."
-          onClick={handleStartRecording}
+          onClick={onStartRecording}
         />
 
         <NewMeetingCard
